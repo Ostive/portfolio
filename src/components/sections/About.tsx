@@ -6,7 +6,7 @@ import { StatCard } from '../ui/StatCard';
 const stats = [
   { icon: Code2, label: 'Years of Experience', value: '3+' },
   { icon: GraduationCap, label: 'Academic Projects', value: '10+' },
-  { icon: Languages, label: 'Languages', value: '2' },
+  { icon: Languages, label: 'Languages', value: '3' },
 ];
 
 const education = [
@@ -35,7 +35,7 @@ export function About() {
     <section id="about" className="py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold mb-16 text-center">About Me</h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {stats.map((stat, index) => (
             <StatCard key={index} {...stat} />
@@ -46,23 +46,39 @@ export function About() {
           <div>
             <h3 className="text-2xl font-bold mb-6">Profile</h3>
             <p className="text-gray-400 mb-8">
-              Development is a source of knowledge and curiosity that drives me to work and love what I do.
+              Development is a source of knowledge and curiosity that drives me
+              to work and love what I do.
             </p>
             <div className="space-y-4">
               <div>
                 <h4 className="font-semibold mb-2">Languages</h4>
                 <div className="flex gap-4">
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">French (Native)</span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">English (B2)</span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    French (Native)
+                  </span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    English (B2)
+                  </span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    Malagasy (Native)
+                  </span>
                 </div>
               </div>
               <div>
                 <h4 className="font-semibold mb-2">Hobbies</h4>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">Parkour (3 years)</span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">Rock climbing (2 years)</span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">Video game development</span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">E-sports</span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    Parkour (3 years)
+                  </span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    Rock climbing (2 years)
+                  </span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    Video game development
+                  </span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    E-sports
+                  </span>
                 </div>
               </div>
             </div>
