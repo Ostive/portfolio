@@ -126,7 +126,19 @@ export function Experience() {
           </p>
         </motion.div>
 
-        
+        <div className="relative pl-12 space-y-8">
+          <TimelineStepper steps={experiences.length} currentStep={currentStep} />
+          
+          {experiences.map((experience, index) => (
+            <ExperienceItem
+              key={index}
+              index={index}
+              experience={experience}
+              isActive={index <= currentStep}
+              onInView={handleInView}
+            />
+          ))}
+        </div>
       </div>
 
       <motion.div 
