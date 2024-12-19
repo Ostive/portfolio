@@ -111,9 +111,13 @@ export function Experience() {
   }, [visibleSections]);
 
   return (
-    <section ref={sectionRef} id="experience" className="relative py-32 bg-gray-800/50 overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="experience"
+      className="relative py-32 bg-gray-800/50 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -122,13 +126,17 @@ export function Experience() {
         >
           <h2 className="text-4xl font-bold mb-4">Professional Experience</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            A track record of delivering impactful solutions across different roles and technologies
+            A track record of delivering impactful solutions across different
+            roles and technologies
           </p>
         </motion.div>
 
         <div className="relative pl-12 space-y-8">
-          <TimelineStepper steps={experiences.length} currentStep={currentStep} />
-          
+          {/* <TimelineStepper
+            steps={experiences.length}
+            currentStep={currentStep}
+          /> */}
+
           {experiences.map((experience, index) => (
             <ExperienceItem
               key={index}
@@ -141,12 +149,15 @@ export function Experience() {
         </div>
       </div>
 
-      <motion.div 
+      <motion.div
         className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(circle at 50% var(--mouse-y), rgba(99, 102, 241, 0.1) 0%, transparent 60%)",
-          '--mouse-y': mouseY
-        } as React.CSSProperties}
+        style={
+          {
+            background:
+              "radial-gradient(circle at 50% var(--mouse-y), rgba(99, 102, 241, 0.1) 0%, transparent 60%)",
+            "--mouse-y": mouseY,
+          } as React.CSSProperties
+        }
       />
     </section>
   );
