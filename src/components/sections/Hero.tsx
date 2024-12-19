@@ -22,7 +22,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            RANDRIANOMENAJANHARY
+            RANDRIANOMENAJANAHARY
             <span className="block text-gradient">Ostive</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mb-12">
