@@ -28,7 +28,7 @@ export function Hero() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 tracking-tight break-words">
             {" "}
             <span className="block">RANDRIANOMENAJANAHARY </span>{" "}
-            <span className="block text-gradient">Ostive 000000</span>{" "}
+            <span className="block text-gradient">Ostive</span>{" "}
           </h1>{" "}
           <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mb-12">
             {" "}
