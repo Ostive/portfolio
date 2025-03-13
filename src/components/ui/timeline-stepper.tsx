@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { cn } from '../../lib/utils';
 import { TimelineBeam } from './timeline-beam';
@@ -68,14 +67,14 @@ export function TimelineStepper({ steps, currentStep }: TimelineStepperProps) {
             {/* Progress beam between steps */}
             {index < steps - 1 && (
               <motion.div
-                className="absolute top-4 left-1/2 w-[2px] -translate-x-1/2 origin-top"
+                className="absolute top-4 left-1/2 w-[3px] rounded-full -translate-x-1/2 origin-top"
                 style={{
-                  height: `${100 / (steps - 1)}vh`,
+                  height: `${100 / (steps - 1)}%`,
                   background: isActive 
-                    ? "linear-gradient(180deg, rgb(99 102 241) 0%, rgba(99, 102, 241, 0.2) 100%)"
+                    ? "linear-gradient(180deg, rgb(99 102 241) 0%, rgba(99, 102, 241, 0.4) 100%)"
                     : "rgb(75, 85, 99)",
-                  opacity: isActive ? stepProgress : 0.3,
-                  scaleY: stepProgress,
+                  opacity: isActive ? 1 : 0.3,
+                  scaleY: isActive ? 1 : stepProgress,
                 }}
               />
             )}

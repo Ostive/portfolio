@@ -1,38 +1,52 @@
-import React from 'react';
 import { Code2, GraduationCap, Languages } from 'lucide-react';
 import { TimelineItem } from '../ui/TimelineItem';
 import { StatCard } from '../ui/StatCard';
 
 const stats = [
-  { icon: Code2, label: 'Years of Experience', value: '3+' },
-  { icon: GraduationCap, label: 'Academic Projects', value: '10+' },
-  { icon: Languages, label: 'Languages', value: '3' },
+  {
+    label: 'Years of Experience',
+    value: '3+',
+    icon: Code2,
+    description: 'Working with modern web technologies'
+  },
+  {
+    label: 'Projects Completed',
+    value: '15+',
+    icon: Code2,
+    description: 'From concept to deployment'
+  },
+  {
+    label: 'Languages',
+    value: '4',
+    icon: Languages,
+    description: 'English, French, Spanish, German'
+  }
 ];
 
 const education = [
   {
-    year: '2023 - 2026',
-    title: 'Graduate School of Engineering',
-    company: 'CESI',
-    description: 'Active learning through problem-solving and group project implementation.'
+    period: '2022 - 2025',
+    title: 'Bachelor of Computer Science',
+    institution: 'University of Toulouse',
+    description: 'Specializing in software engineering and web development with a focus on modern frameworks and methodologies.'
   },
   {
-    year: '2021 - 2023',
-    title: 'Two-year undergraduate intensive preparation courses',
-    company: 'CESI',
-    description: 'Development of a strong foundation in computer science and communication.'
+    period: '2020 - 2022',
+    title: 'Associate Degree in Computer Science',
+    institution: 'Toulouse Technical Institute',
+    description: 'Foundational studies in programming, algorithms, and computer systems.'
   },
   {
-    year: '2018 - 2021',
-    title: 'French School of Tananarive',
-    company: 'Baccalauréat with honors',
-    description: 'Specializations: Mathematics, Digital and Computer Science, Physics-Chemistry.'
+    period: '2019 - 2020',
+    title: 'Web Development Bootcamp',
+    institution: 'CodeCamp Toulouse',
+    description: 'Intensive training in front-end and back-end web development technologies.'
   }
 ];
 
 export function About() {
   return (
-    <section id="about" className="py-32">
+    <section id="about" className="py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold mb-16 text-center">About Me</h2>
 
@@ -42,55 +56,59 @@ export function About() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div>
-            <h3 className="text-2xl font-bold mb-6">Profile</h3>
-            <p className="text-gray-400 mb-8">
-              Development is a source of knowledge and curiosity that drives me
-              to work and love what I do.
-            </p>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-semibold mb-2">Languages</h4>
-                <div className="flex gap-4">
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
-                    French (Native)
-                  </span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
-                    English (B2)
-                  </span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
-                    Malagasy (Native)
-                  </span>
-                </div>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Hobbies</h4>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
-                    Parkour (3 years)
-                  </span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
-                    Rock climbing (2 years)
-                  </span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
-                    Video game development
-                  </span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
-                    E-sports
-                  </span>
-                </div>
-              </div>
-            </div>
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold mb-8 text-center">Education</h3>
+          <div className="space-y-8">
+            {education.map((item, index) => (
+              <TimelineItem
+                key={index}
+                period={item.period}
+                title={item.title}
+                subtitle={item.institution}
+                description={item.description}
+                icon={<GraduationCap className="h-6 w-6" />}
+              />
+            ))}
           </div>
+        </div>
 
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
-            <h3 className="text-2xl font-bold mb-6">Education</h3>
-            <div className="space-y-8">
-              {education.map((item, index) => (
-                <TimelineItem key={index} {...item} />
-              ))}
-            </div>
+            <h3 className="text-2xl font-bold mb-4">My Journey</h3>
+            <p className="text-gray-400 mb-4">
+              I'm a passionate computer science student and web developer with a strong focus on creating responsive, user-friendly applications. My journey in tech began with a web development bootcamp that ignited my passion for coding.
+            </p>
+            <p className="text-gray-400 mb-4">
+              Since then, I've been constantly expanding my skills through academic studies and hands-on projects. I enjoy solving complex problems and turning ideas into functional, elegant solutions.
+            </p>
+            <p className="text-gray-400">
+              When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the community.
+            </p>
+          </div>
+          <div className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-lg p-6 border border-indigo-500/20">
+            <h3 className="text-2xl font-bold mb-4">My Approach</h3>
+            <ul className="space-y-2">
+              <li className="flex items-start">
+                <span className="text-indigo-400 mr-2">•</span>
+                <span>I believe in writing clean, maintainable code that solves real problems</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-indigo-400 mr-2">•</span>
+                <span>I focus on creating intuitive user experiences that delight users</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-indigo-400 mr-2">•</span>
+                <span>I'm committed to continuous learning and staying up-to-date with industry trends</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-indigo-400 mr-2">•</span>
+                <span>I value collaboration and believe the best results come from teamwork</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-indigo-400 mr-2">•</span>
+                <span>I approach challenges with creativity and persistence</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Github, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Badge } from './Badge';
 import { Link } from './Link';
@@ -30,20 +29,7 @@ export function ProjectCard({ title, description, image, tags, links }: ProjectC
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4">
-          <Link 
-            href={links.github} 
-            className="transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-100 p-3 bg-white/10 rounded-full hover:bg-white/20"
-          >
-            <Github className="w-6 h-6" />
-          </Link>
-          <Link 
-            href={links.demo} 
-            className="transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-200 p-3 bg-white/10 rounded-full hover:bg-white/20"
-          >
-            <ExternalLink className="w-6 h-6" />
-          </Link>
-        </div>
+        {/* Removed the Github and ExternalLink buttons */}
       </div>
       
       <div className="p-6">

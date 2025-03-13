@@ -7,8 +7,8 @@ import { BeamContainer } from '../ui/beam-container';
 const featuredProjects = [
   {
     title: 'Imopanorama Real Estate Website',
-    description: 'Complete real estate platform with property management system and search engine',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
+    description: 'Currently working on real estate platform with property management system and search engine',
+    image: '/images/projects/imopanorama.jpg',
     tags: ['Next.js', 'CRUD', 'Database', 'Search Engine'],
     links: {
       github: 'https://github.com',
@@ -18,7 +18,7 @@ const featuredProjects = [
   {
     title: 'Job Listing Platform',
     description: 'Group project implementing MVC architecture with REST API integration',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800',
+    image: '/images/projects/job-listing.jpg',
     tags: ['PHP', 'JavaScript', 'MySQL', 'REST API'],
     links: {
       github: 'https://github.com',
@@ -28,7 +28,7 @@ const featuredProjects = [
   {
     title: 'Management Software',
     description: 'Windows-based management system with SQL Server backend',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+    image: '/images/projects/management-software.jpg',
     tags: ['WinForms', 'SQL Server', 'OOP', 'UML'],
     links: {
       github: 'https://github.com',
@@ -39,7 +39,7 @@ const featuredProjects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-32">
+    <section id="projects" className="py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-end mb-16">
           <div>

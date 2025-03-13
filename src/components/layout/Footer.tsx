@@ -11,13 +11,13 @@ export function Footer() {
             <span className="font-bold text-xl">DevPortfolio</span>
           </div>
           <div className="flex gap-6">
-            <a href="https://github.com" className="text-gray-400 hover:text-white transition-colors">
+            <a href="https://github.com/Ostive" className="text-gray-400 hover:text-white transition-colors">
               <Github className="h-5 w-5" />
             </a>
-            <a href="https://linkedin.com" className="text-gray-400 hover:text-white transition-colors">
+            <a href="https://fr.linkedin.com/in/ostive-kevin-randrianomenjanahary-460619254" className="text-gray-400 hover:text-white transition-colors">
               <Linkedin className="h-5 w-5" />
             </a>
-            <a href="mailto:contact@example.com" className="text-gray-400 hover:text-white transition-colors">
+            <a href="mailto:Ostiverandrianomenjanahary@gmail.com" className="text-gray-400 hover:text-white transition-colors">
               <Mail className="h-5 w-5" />
             </a>
           </div>

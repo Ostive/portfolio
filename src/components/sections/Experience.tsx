@@ -72,7 +72,7 @@ function ExperienceItem({ experience, index, isActive, onInView }: ExperienceIte
       <ParallaxCard
         className={cn(
           "transition-all duration-500",
-          isActive && "before:absolute before:left-[-2rem] before:top-0 before:h-full before:w-8 before:bg-gradient-to-r before:from-indigo-500/20 before:to-transparent before:opacity-100 before:transition-opacity before:beam-glow"
+          isActive && "before:absolute before:left-[-2rem] before:top-0 before:h-full before:w-8 before:rounded-full before:bg-gradient-to-r before:from-indigo-500/20 before:to-transparent before:opacity-100 before:transition-opacity before:beam-glow"
         )}
       >
         <ExperienceCard {...experience} />
@@ -83,7 +83,9 @@ function ExperienceItem({ experience, index, isActive, onInView }: ExperienceIte
 
 export function Experience() {
   const sectionRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [currentStep, setCurrentStep] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"]
@@ -110,8 +112,24 @@ export function Experience() {
     }
   }, [visibleSections]);
 
+  // Handle mouse movement for beam effect
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      setMousePosition({ x, y });
+    };
+
+    container.addEventListener('mousemove', handleMouseMove);
+    return () => container.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
-    <section ref={sectionRef} id="experience" className="relative py-32 bg-gray-800/50 overflow-hidden">
+    <section ref={sectionRef} id="experience" className="py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center mb-16"
@@ -126,18 +144,31 @@ export function Experience() {
           </p>
         </motion.div>
 
-        <div className="relative pl-12 space-y-8">
-          <TimelineStepper steps={experiences.length} currentStep={currentStep} />
+        <div ref={containerRef} className="relative">
+          {/* Experience content with timeline */}
+          <div className="relative pl-12 space-y-8">
+            {/* Timeline stepper must remain outside any other container to work properly */}
+            <TimelineStepper steps={experiences.length} currentStep={currentStep} />
+            
+            {/* Experience items */}
+            {experiences.map((experience, index) => (
+              <ExperienceItem
+                key={index}
+                index={index}
+                experience={experience}
+                isActive={index <= currentStep}
+                onInView={handleInView}
+              />
+            ))}
+          </div>
           
-          {experiences.map((experience, index) => (
-            <ExperienceItem
-              key={index}
-              index={index}
-              experience={experience}
-              isActive={index <= currentStep}
-              onInView={handleInView}
-            />
-          ))}
+          {/* Beam effect overlay - positioned absolutely to not interfere with timeline */}
+          <motion.div 
+            className="absolute inset-0 pointer-events-none z-10"
+            style={{
+              background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.08), transparent 40%)`,
+            }}
+          />
         </div>
       </div>
 

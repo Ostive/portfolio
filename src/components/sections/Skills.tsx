@@ -1,4 +1,3 @@
-import React from 'react';
 import { SkillCategory } from '../ui/SkillCategory';
 
 const skills = {
@@ -24,7 +23,7 @@ const skills = {
 
 export function Skills() {
   return (
-    <section id="skills" className="py-32 bg-gray-800/50">
+    <section id="skills" className="py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold mb-16 text-center">Technical Expertise</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

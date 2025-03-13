@@ -6,49 +6,49 @@ import { Link } from '../ui/Link';
 const allProjects = [
   {
     title: 'E-Commerce Platform',
-    description: 'Next.js powered marketplace with real-time inventory and payments',
+    description: 'Optimisation and Improvement of e-commerce platform',
     image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
-    tags: ['Next.js', 'Node.js', 'MongoDB'],
+    tags: ['PHP', 'JavaScript', 'MySQL','Prestashop'],
     links: {
       github: 'https://github.com',
       demo: 'https://demo.com'
     }
   },
   {
-    title: 'AI Task Manager',
-    description: 'Smart task management with AI-powered prioritization',
+    title: 'Stock Management Platform',
+    description: 'Creation of a platform for managing stock and inventory',
+    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
+    tags: ['Winform', 'C#', 'SQLServer', 'OOP', 'UML'],
+    links: {
+      github: 'https://github.com',
+      demo: 'https://demo.com'
+    }
+  },
+  {
+    title: 'Network Management of a fictif company',
+    description: 'Management of the network infrastructure of a fictif company',
+    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
+    tags: ['Cisco packet tracer', 'IPv4', 'IPv6', 'VLAN', 'Switch', 'Router', 'Firewall'],
+    links: {
+      github: 'https://github.com',
+      demo: 'https://demo.com'
+    }
+  },
+  {
+    title: 'AI Prediction of TurnOver',
+    description: 'Analysis of factors leading to employee turnover and creation of a predicting model',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800',
-    tags: ['React', 'Python', 'OpenAI'],
+    tags: [ 'Python', 'Jupyter Notebook', 'Pandas', 'Scikit-learn'],
     links: {
       github: 'https://github.com',
       demo: 'https://demo.com'
     }
   },
   {
-    title: 'Cloud Analytics Dashboard',
-    description: 'Real-time cloud infrastructure monitoring and analytics',
+    title: 'Skill Analytics Dashboard',
+    description: 'Analysis of skills for a better employee matching and employee improvement',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
-    tags: ['Vue.js', 'AWS', 'GraphQL'],
-    links: {
-      github: 'https://github.com',
-      demo: 'https://demo.com'
-    }
-  },
-  {
-    title: 'Social Media Analytics',
-    description: 'Comprehensive social media analytics and reporting platform',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
-    tags: ['React', 'Node.js', 'PostgreSQL'],
-    links: {
-      github: 'https://github.com',
-      demo: 'https://demo.com'
-    }
-  },
-  {
-    title: 'Healthcare Management System',
-    description: 'Modern healthcare management platform with real-time patient tracking',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800',
-    tags: ['React', 'Express', 'MongoDB'],
+    tags: ['Laravel', 'JavaScript', 'MySQL', 'Highcharts'],
     links: {
       github: 'https://github.com',
       demo: 'https://demo.com'
@@ -56,9 +56,9 @@ const allProjects = [
   },
   {
     title: 'Real Estate Platform',
-    description: 'Advanced real estate platform with virtual tours and analytics',
+    description: 'Creation of a real estate platform with property management system and search engine',
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL'],
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL','React'],
     links: {
       github: 'https://github.com',
       demo: 'https://demo.com'

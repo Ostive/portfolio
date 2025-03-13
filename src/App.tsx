@@ -9,28 +9,35 @@ import { Skills } from './components/sections/Skills';
 import { Experience } from './components/sections/Experience';
 import { Contact } from './components/sections/Contact';
 import { useLocation } from './hooks/useLocation';
+import { AnimatedBackground, FloatingParticles } from './components/ui/animated-background';
 
 export default function App() {
   const { pathname } = useLocation();
   
   return (
-    <div className="min-h-screen bg-gray-900">
-      <Header />
-      <main>
-        {pathname === '/all-projects' ? (
-          <AllProjects />
-        ) : (
-          <>
-            <Hero />
-            <About />
-            <Projects />
-            <Skills />
-            <Experience />
-            <Contact />
-          </>
-        )}
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-950 relative overflow-hidden">
+      {/* Animated background */}
+      <AnimatedBackground />
+      <FloatingParticles />
+      
+      <div className="relative z-10">
+        <Header />
+        <main>
+          {pathname === '/all-projects' ? (
+            <AllProjects />
+          ) : (
+            <>
+              <Hero />
+              <About />
+              <Projects />
+              <Skills />
+              <Experience />
+              <Contact />
+            </>
+          )}
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
