@@ -1,4 +1,3 @@
-import React from 'react';
 import { X } from 'lucide-react';
 import { NavLink } from '../ui/NavLink';
 import { Link } from '../ui/Link';
@@ -15,17 +14,17 @@ export function MobileMenu({ isOpen, activeSection, onClose, isAllProjects }: Mo
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
-      <div className="fixed inset-0 bg-black/50" onClick={onClose} />
-      <div className="fixed right-0 top-0 bottom-0 w-64 bg-gray-800 p-6">
-        <div className="flex justify-between items-center mb-8">
-          <span className="text-xl font-bold">Menu</span>
-          <button onClick={onClose} className="p-2">
+      <div className="fixed inset-0 bg-black/70" onClick={onClose} />
+      <div className="fixed right-0 top-0 bottom-0 w-3/4 max-w-xs bg-gray-900 shadow-lg p-6 overflow-y-auto transform transition-transform duration-300 ease-in-out">
+        <div className="flex justify-between items-center mb-8 border-b border-gray-800 pb-4">
+          <span className="text-xl font-bold text-white">Menu</span>
+          <button onClick={onClose} className="p-2 hover:bg-gray-800 rounded-lg transition-colors">
             <X className="h-6 w-6" />
           </button>
         </div>
         <nav className="flex flex-col gap-4">
           {isAllProjects ? (
-            <Link href="/" className="text-gray-400 hover:text-white transition-colors">
+            <Link href="/" className="text-gray-400 hover:text-white transition-colors py-2">
               Back to Home
             </Link>
           ) : (
