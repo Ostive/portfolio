@@ -1,10 +1,19 @@
-import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { ProjectCard } from '../ui/ProjectCard';
 import { Link } from '../ui/Link';
 import { BeamContainer } from '../ui/beam-container';
 
 const featuredProjects = [
+  {
+    title: 'Madatravel',
+    description: 'Travel platform for exploring Madagascar with interactive trip planning features',
+    image: '/images/projects/madatravel.jpg',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL'],
+    links: {
+      github: 'https://github.com',
+      demo: 'https://demo.com'
+    }
+  },
   {
     title: 'Imopanorama Real Estate Website',
     description: 'Currently working on real estate platform with property management system and search engine',
@@ -20,16 +29,6 @@ const featuredProjects = [
     description: 'Group project implementing MVC architecture with REST API integration',
     image: '/images/projects/job-listing.jpg',
     tags: ['PHP', 'JavaScript', 'MySQL', 'REST API'],
-    links: {
-      github: 'https://github.com',
-      demo: 'https://demo.com'
-    }
-  },
-  {
-    title: 'Management Software',
-    description: 'Windows-based management system with SQL Server backend',
-    image: '/images/projects/management-software.jpg',
-    tags: ['WinForms', 'SQL Server', 'OOP', 'UML'],
     links: {
       github: 'https://github.com',
       demo: 'https://demo.com'

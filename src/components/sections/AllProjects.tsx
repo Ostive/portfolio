@@ -1,13 +1,54 @@
-import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { ProjectCard } from '../ui/ProjectCard';
 import { Link } from '../ui/Link';
 
 const allProjects = [
+  // Featured Projects
+  {
+    title: 'Madatravel',
+    description: 'Travel platform for exploring Madagascar with interactive trip planning features',
+    image: '/images/projects/madatravel.jpg',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL'],
+    links: {
+      github: 'https://github.com',
+      demo: 'https://demo.com'
+    }
+  },
+  {
+    title: 'Imopanorama Real Estate Website',
+    description: 'Currently working on real estate platform with property management system and search engine',
+    image: '/images/projects/imopanorama.jpg',
+    tags: ['Next.js', 'CRUD', 'Database', 'Search Engine'],
+    links: {
+      github: 'https://github.com',
+      demo: 'https://demo.com'
+    }
+  },
+  {
+    title: 'Job Listing Platform',
+    description: 'Group project implementing MVC architecture with REST API integration',
+    image: '/images/projects/job-listing.jpg',
+    tags: ['PHP', 'JavaScript', 'MySQL', 'REST API'],
+    links: {
+      github: 'https://github.com',
+      demo: 'https://demo.com'
+    }
+  },
+  // Other Projects
+  {
+    title: 'Management Software',
+    description: 'Windows-based management system with SQL Server backend',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+    tags: ['WinForms', 'SQL Server', 'OOP', 'UML'],
+    links: {
+      github: 'https://github.com',
+      demo: 'https://demo.com'
+    }
+  },
   {
     title: 'E-Commerce Platform',
     description: 'Optimisation and Improvement of e-commerce platform',
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800',
     tags: ['PHP', 'JavaScript', 'MySQL','Prestashop'],
     links: {
       github: 'https://github.com',
@@ -17,7 +58,7 @@ const allProjects = [
   {
     title: 'Stock Management Platform',
     description: 'Creation of a platform for managing stock and inventory',
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
     tags: ['Winform', 'C#', 'SQLServer', 'OOP', 'UML'],
     links: {
       github: 'https://github.com',
@@ -27,7 +68,7 @@ const allProjects = [
   {
     title: 'Network Management of a fictif company',
     description: 'Management of the network infrastructure of a fictif company',
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
     tags: ['Cisco packet tracer', 'IPv4', 'IPv6', 'VLAN', 'Switch', 'Router', 'Firewall'],
     links: {
       github: 'https://github.com',
@@ -49,16 +90,6 @@ const allProjects = [
     description: 'Analysis of skills for a better employee matching and employee improvement',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
     tags: ['Laravel', 'JavaScript', 'MySQL', 'Highcharts'],
-    links: {
-      github: 'https://github.com',
-      demo: 'https://demo.com'
-    }
-  },
-  {
-    title: 'Real Estate Platform',
-    description: 'Creation of a real estate platform with property management system and search engine',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL','React'],
     links: {
       github: 'https://github.com',
       demo: 'https://demo.com'
