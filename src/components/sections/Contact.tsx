@@ -82,7 +82,9 @@ export function Contact() {
         title: formData.title,
         message: formData.message,
         website: window.location.origin,
-        yourName: 'Ostive Kevin'
+        yourName: 'Ostive Kevin',
+        to_email: 'ostive.randrianomenjanahary@gmail.com', // Send a copy to your email
+        reply_to: formData.email // Reply to the sender
       };
 
       // Use send method with explicit parameters
