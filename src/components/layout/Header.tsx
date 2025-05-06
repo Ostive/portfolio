@@ -1,4 +1,4 @@
-import { Code2, Menu } from 'lucide-react';
+import { Code2, Menu, Download } from 'lucide-react';
 import { NavLink } from '../ui/NavLink';
 import { MobileMenu } from './MobileMenu';
 import { useNavigation } from '../../hooks/useNavigation';
@@ -39,6 +39,14 @@ export function Header() {
               <NavLink href="#contact" isActive={activeSection === 'contact'}>
                 Contact
               </NavLink>
+              <a 
+                href="/documents/CV_Ostive_Kevin.pdf" 
+                download
+                className="flex items-center gap-1 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+              >
+                <Download className="h-4 w-4" />
+                <span>CV</span>
+              </a>
             </nav>
           )}
 
