@@ -84,10 +84,25 @@ export function Contact() {
         website: window.location.origin,
         yourName: 'Ostive Kevin',
         to_email: 'ostive.randrianomenjanahary@gmail.com', // Send a copy to your email
-        reply_to: formData.email // Reply to the sender
+        reply_to: formData.email, // Reply to the sender
+        // Make sure these keys exactly match what's expected in the template
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.title,
+        message_content: formData.message
       };
 
-      // Use send method with explicit parameters
+      // First send an email to the site owner using the provided template
+      await emailjs.send(serviceId, 'template_c6r0qb9', {
+        to_name: 'Ostive Kevin',
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.title,
+        message: formData.message,
+        to_email: 'ostive.randrianomenjanahary@gmail.com'
+      }, publicKey);
+      
+      // Then send the confirmation email to the sender
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
       
       setSubmitStatus({
