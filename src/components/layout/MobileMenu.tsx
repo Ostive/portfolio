@@ -1,4 +1,4 @@
-import { X } from 'lucide-react';
+import { X, Download } from 'lucide-react';
 import { NavLink } from '../ui/NavLink';
 import { Link } from '../ui/Link';
 
@@ -47,6 +47,17 @@ export function MobileMenu({ isOpen, activeSection, onClose, isAllProjects }: Mo
               <NavLink href="#contact" isActive={activeSection === 'contact'} onClick={onClose}>
                 Contact
               </NavLink>
+              <div className="mt-4 pt-4 border-t border-gray-800">
+                <a 
+                  href="/documents/CV_Ostive_Kevin.pdf" 
+                  download
+                  className="flex items-center gap-2 px-4 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors w-full justify-center"
+                  onClick={onClose}
+                >
+                  <Download className="h-5 w-5" />
+                  <span>Download CV</span>
+                </a>
+              </div>
             </>
           )}
         </nav>
