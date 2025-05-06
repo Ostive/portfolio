@@ -28,7 +28,7 @@ const allProjects = [
     title: 'Job Listing Platform',
     description: 'Group project implementing MVC architecture with REST API integration',
     image: '/images/projects/job-listing.jpg',
-    tags: ['PHP', 'JavaScript', 'MySQL', 'REST API'],
+    tags: ['PHP', 'JavaScript', 'MySQL', 'REST API','Laravel'],
     links: {
       github: 'https://github.com',
       demo: 'https://demo.com'
