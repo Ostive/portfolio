@@ -66,8 +66,8 @@ const allProjects = [
     }
   },
   {
-    title: 'Network Management of a fictif company',
-    description: 'Management of the network infrastructure of a fictif company',
+    title: 'Network Management of a fictitious company',
+    description: 'Network management of a fictitious company with Cisco Packet Tracer',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
     tags: ['Cisco packet tracer', 'IPv4', 'IPv6', 'VLAN', 'Switch', 'Router', 'Firewall'],
     links: {
