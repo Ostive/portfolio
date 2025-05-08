@@ -36,16 +36,6 @@ const allProjects = [
   },
   // Other Projects
   {
-    title: 'Management Software',
-    description: 'Windows-based management system with SQL Server backend',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-    tags: ['WinForms', 'SQL Server', 'OOP', 'UML'],
-    links: {
-      github: 'https://github.com',
-      demo: 'https://demo.com'
-    }
-  },
-  {
     title: 'E-Commerce Platform',
     description: 'Optimisation and Improvement of e-commerce platform',
     image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800',
