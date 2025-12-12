@@ -15,7 +15,7 @@ export function MobileMenu({ isOpen, activeSection, onClose, isAllProjects }: Mo
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
       <div className="fixed inset-0 bg-black/70" onClick={onClose} />
-      <div className="fixed right-0 top-0 bottom-0 w-3/4 max-w-xs bg-gray-900 shadow-lg p-6 overflow-y-auto transform transition-transform duration-300 ease-in-out">
+      <div className="fixed right-0 top-0 bottom-0 w-3/4 max-w-xs bg-gray-900/95 backdrop-blur-xl border-l border-white/10 shadow-2xl p-6 overflow-y-auto transform transition-transform duration-300 ease-in-out">
         <div className="flex justify-between items-center mb-8 border-b border-gray-800 pb-4">
           <span className="text-xl font-bold text-white">Menu</span>
           <button onClick={onClose} className="p-2 hover:bg-gray-800 rounded-lg transition-colors">
@@ -48,8 +48,8 @@ export function MobileMenu({ isOpen, activeSection, onClose, isAllProjects }: Mo
                 Contact
               </NavLink>
               <div className="mt-4 pt-4 border-t border-gray-800">
-                <a 
-                  href="/documents/CV_Ostive_Kevin.pdf" 
+                <a
+                  href="/documents/CV_Ostive_Kevin.pdf"
                   download
                   className="flex items-center gap-2 px-4 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors w-full justify-center"
                   onClick={onClose}

@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
 import { cn } from '../../lib/utils';
 
-interface BeamContainerProps {
+interface BeamContainerProps extends HTMLMotionProps<'div'> {
   children: React.ReactNode;
   className?: string;
 }
 
-export function BeamContainer({ children, className }: BeamContainerProps) {
+export function BeamContainer({ children, className, ...props }: BeamContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mousePosition = useRef({ x: 0, y: 0 });
 
@@ -27,7 +27,11 @@ export function BeamContainer({ children, className }: BeamContainerProps) {
   }, []);
 
   return (
-    <div ref={containerRef} className={cn('relative overflow-hidden', className)}>
+    <motion.div
+      ref={containerRef}
+      className={cn('relative overflow-hidden', className)}
+      {...props}
+    >
       <motion.div
         className="pointer-events-none absolute inset-0 z-30 transition duration-300"
         style={{
@@ -45,6 +49,6 @@ export function BeamContainer({ children, className }: BeamContainerProps) {
         }}
       />
       {children}
-    </div>
+    </motion.div>
   );
 }

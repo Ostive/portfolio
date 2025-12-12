@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { cn } from '../../lib/utils';
 import { TimelineBeam } from './timeline-beam';
 
@@ -7,80 +7,79 @@ interface TimelineStepperProps {
   currentStep: number;
 }
 
+interface TimelineStepProps {
+  index: number;
+  steps: number;
+  currentStep: number;
+}
+
+function TimelineStep({ index, steps, currentStep }: TimelineStepProps) {
+  const isActive = index <= currentStep;
+
+  return (
+    <motion.div
+      className="absolute w-4 h-4 -left-[7px]"
+      style={{ top: `${(index / (steps - 1)) * 100}%` }}
+    >
+      {/* Step circle */}
+      <motion.div
+        className={cn(
+          "absolute inset-0 rounded-full border-2 transition-all duration-300 z-10",
+          isActive
+            ? "bg-indigo-500 border-indigo-500"
+            : "bg-gray-900 border-gray-600"
+        )}
+        initial={false}
+        animate={{
+          scale: isActive ? 1 : 0.8,
+          boxShadow: isActive
+            ? "0 0 20px 4px rgba(99, 102, 241, 0.5)"
+            : "none",
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      />
+
+      {/* Active step pulse effect */}
+      {isActive && (
+        <motion.div
+          className="absolute inset-0 rounded-full bg-indigo-400"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1.5, opacity: 0 }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeOut"
+          }}
+        />
+      )}
+    </motion.div>
+  );
+}
+
 export function TimelineStepper({ steps, currentStep }: TimelineStepperProps) {
-  const { scrollYProgress } = useScroll({
-    offset: ["start start", "end end"]
-  });
-  
+  // Calculate progress: if step 0 is active, progress is to first dot.
+  // Actually, we want the beam to fill UP TO the current Step.
+  // if currentStep is 0 (first item), beam should presumably just be at start dot?
+  // Or typically "stepper" implies lines connect completed steps. 
+  // If I am at step 0, line to step 0 is full? 
+  // Let's assume the beam fills up to the current active dot.
+
+  const progress = steps > 1 ? currentStep / (steps - 1) : 0;
+
   return (
     <div className="absolute left-0 inset-y-0">
       {/* Main timeline beam */}
-      <TimelineBeam />
-      
-      {/* Step indicators */}
-      {Array.from({ length: steps }).map((_, index) => {
-        const isActive = index <= currentStep;
-        const stepProgress = useTransform(
-          scrollYProgress,
-          [index / steps, (index + 1) / steps],
-          [0, 1]
-        );
+      <TimelineBeam progress={progress} />
 
-        return (
-          <motion.div
-            key={index}
-            className="absolute w-4 h-4 -left-[7px]"
-            style={{ top: `${(index / (steps - 1)) * 100}%` }}
-          >
-            {/* Step circle */}
-            <motion.div
-              className={cn(
-                "absolute inset-0 rounded-full border-2 transition-all duration-300",
-                isActive 
-                  ? "bg-indigo-500 border-indigo-500" 
-                  : "bg-transparent border-gray-600"
-              )}
-              initial={false}
-              animate={{
-                scale: isActive ? 1 : 0.8,
-                boxShadow: isActive 
-                  ? "0 0 20px 4px rgba(99, 102, 241, 0.5)"
-                  : "none",
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            />
-            
-            {/* Active step pulse effect */}
-            {isActive && (
-              <motion.div
-                className="absolute inset-0 rounded-full bg-indigo-400"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1.5, opacity: 0 }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeOut"
-                }}
-              />
-            )}
-            
-            {/* Progress beam between steps */}
-            {index < steps - 1 && (
-              <motion.div
-                className="absolute top-4 left-1/2 w-[3px] rounded-full -translate-x-1/2 origin-top"
-                style={{
-                  height: `${100 / (steps - 1)}%`,
-                  background: isActive 
-                    ? "linear-gradient(180deg, rgb(99 102 241) 0%, rgba(99, 102, 241, 0.4) 100%)"
-                    : "rgb(75, 85, 99)",
-                  opacity: isActive ? 1 : 0.3,
-                  scaleY: isActive ? 1 : stepProgress,
-                }}
-              />
-            )}
-          </motion.div>
-        );
-      })}
+      {/* Step indicators */}
+      {Array.from({ length: steps }).map((_, index) => (
+        <TimelineStep
+          key={index}
+          index={index}
+          steps={steps}
+          currentStep={currentStep}
+        />
+      ))}
     </div>
   );
 }
