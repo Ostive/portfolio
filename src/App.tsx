@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { Hero } from './components/sections/Hero';
@@ -13,13 +13,13 @@ import { AnimatedBackground, FloatingParticles } from './components/ui/animated-
 
 export default function App() {
   const { pathname } = useLocation();
-  
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-950 relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden">
       {/* Animated background */}
       <AnimatedBackground />
       <FloatingParticles />
-      
+
       <div className="relative z-10">
         <Header />
         <main>

@@ -1,8 +1,8 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { ExperienceCard } from '../ui/ExperienceCard';
 import { TimelineStepper } from '../ui/timeline-stepper';
 import { ParallaxCard } from '../ui/parallax-card';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { cn } from '../../lib/utils';
 
@@ -53,11 +53,11 @@ const experiences = [
 interface ExperienceItemProps {
   experience: typeof experiences[0];
   index: number;
-  isActive: boolean;
+
   onInView: (index: number, inView: boolean) => void;
 }
 
-function ExperienceItem({ experience, index, isActive, onInView }: ExperienceItemProps) {
+function ExperienceItem({ experience, index, onInView }: ExperienceItemProps) {
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: false,
@@ -68,30 +68,31 @@ function ExperienceItem({ experience, index, isActive, onInView }: ExperienceIte
   }, [index, inView, onInView]);
 
   return (
-    <div ref={ref} className="relative">
+    <motion.div
+      ref={ref}
+      className="relative"
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+    >
       <ParallaxCard
         className={cn(
-          "transition-all duration-500",
-          isActive && "before:absolute before:left-[-2rem] before:top-0 before:h-full before:w-8 before:rounded-full before:bg-gradient-to-r before:from-indigo-500/20 before:to-transparent before:opacity-100 before:transition-opacity before:beam-glow"
+          "transition-all duration-500"
         )}
       >
         <ExperienceCard {...experience} />
       </ParallaxCard>
-    </div>
+    </motion.div>
   );
 }
 
 export function Experience() {
-  const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"]
-  });
   const [visibleSections, setVisibleSections] = useState(new Set<number>());
-  const mouseY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+
 
   const handleInView = useCallback((index: number, inView: boolean) => {
     setVisibleSections(prev => {
@@ -129,9 +130,9 @@ export function Experience() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="experience" className="py-32 relative overflow-hidden">
+    <section id="experience" className="py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -149,21 +150,20 @@ export function Experience() {
           <div className="relative pl-12 space-y-8">
             {/* Timeline stepper must remain outside any other container to work properly */}
             <TimelineStepper steps={experiences.length} currentStep={currentStep} />
-            
+
             {/* Experience items */}
             {experiences.map((experience, index) => (
               <ExperienceItem
                 key={index}
                 index={index}
                 experience={experience}
-                isActive={index <= currentStep}
                 onInView={handleInView}
               />
             ))}
           </div>
-          
+
           {/* Beam effect overlay - positioned absolutely to not interfere with timeline */}
-          <motion.div 
+          <motion.div
             className="absolute inset-0 pointer-events-none z-10"
             style={{
               background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.08), transparent 40%)`,
@@ -172,13 +172,7 @@ export function Experience() {
         </div>
       </div>
 
-      <motion.div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(circle at 50% var(--mouse-y), rgba(99, 102, 241, 0.1) 0%, transparent 60%)",
-          '--mouse-y': mouseY
-        } as React.CSSProperties}
-      />
+
     </section>
   );
 }
