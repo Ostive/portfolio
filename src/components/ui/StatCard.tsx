@@ -12,15 +12,14 @@ interface StatCardProps {
 export function StatCard({ icon: Icon, label, value, variants }: StatCardProps) {
   return (
     <motion.div
-      className="bg-gray-800 p-6 rounded-lg text-center"
+      className="bg-term-surface border border-term-border rounded-sm p-6 text-center transition-colors duration-150 hover:border-term-accent/50"
       variants={variants}
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
     >
-      <div className="inline-flex p-3 bg-gray-700 rounded-lg mb-4">
-        <Icon className="w-6 h-6 text-indigo-400" />
+      <div className="inline-flex p-3 border border-term-border rounded-sm mb-4">
+        <Icon className="w-5 h-5 text-term-accent" />
       </div>
-      <div className="text-3xl font-bold mb-2">{value}</div>
-      <div className="text-gray-400">{label}</div>
+      <div className="text-3xl font-bold font-mono mb-2 text-term-accent">{value}</div>
+      <div className="text-term-muted font-mono text-sm">{label}</div>
     </motion.div>
   );
 }

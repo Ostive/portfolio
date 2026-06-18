@@ -2,7 +2,6 @@ import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ProjectCard } from '../ui/ProjectCard';
 import { Link } from '../ui/Link';
-import { BeamContainer } from '../ui/beam-container';
 
 const featuredProjects = [
   {
@@ -68,17 +67,17 @@ export function Projects() {
           transition={{ duration: 0.5 }}
         >
           <div>
-            <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
-            <p className="text-gray-400 max-w-2xl">
+            <h2 className="text-4xl font-bold mb-4 font-mono"><span className="text-term-accent">## </span>Featured Projects</h2>
+            <p className="text-term-muted max-w-2xl">
               A showcase of my technical achievements and project implementations
             </p>
           </div>
           <Link href="/all-projects" className="button-secondary">
-            View All <ArrowRight className="w-4 h-4" />
+            view_all <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
 
-        <BeamContainer
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -88,7 +87,7 @@ export function Projects() {
           {featuredProjects.map((project, index) => (
             <ProjectCard key={index} {...project} variants={cardVariants} />
           ))}
-        </BeamContainer>
+        </motion.div>
       </div>
     </section>
   );

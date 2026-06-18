@@ -26,32 +26,15 @@ function TimelineStep({ index, steps, currentStep }: TimelineStepProps) {
         className={cn(
           "absolute inset-0 rounded-full border-2 transition-all duration-300 z-10",
           isActive
-            ? "bg-indigo-500 border-indigo-500"
-            : "bg-gray-900 border-gray-600"
+            ? "bg-term-accent border-term-accent"
+            : "bg-term-bg border-term-border"
         )}
         initial={false}
         animate={{
           scale: isActive ? 1 : 0.8,
-          boxShadow: isActive
-            ? "0 0 20px 4px rgba(99, 102, 241, 0.5)"
-            : "none",
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       />
-
-      {/* Active step pulse effect */}
-      {isActive && (
-        <motion.div
-          className="absolute inset-0 rounded-full bg-indigo-400"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1.5, opacity: 0 }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeOut"
-          }}
-        />
-      )}
     </motion.div>
   );
 }

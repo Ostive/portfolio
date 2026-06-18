@@ -139,8 +139,8 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 font-mono"><span className="text-term-accent">## </span>Get in Touch</h2>
+          <p className="text-term-muted max-w-2xl mx-auto">
             Feel free to reach out for collaboration, opportunities, or just to say hello
           </p>
         </motion.div>
@@ -153,17 +153,17 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-bold mb-6 font-mono"><span className="text-term-accent">## </span>Contact Information</h3>
             <div className="space-y-6">
               {contactDetails.map((item, index) => (
                 <div key={index} className="flex items-center space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400">
-                    <item.icon className="w-6 h-6" />
+                  <div className="w-11 h-11 border border-term-border rounded-sm flex items-center justify-center text-term-accent">
+                    <item.icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400">{item.label}</p>
+                    <p className="text-sm text-term-muted font-mono">{item.label}</p>
                     {item.link ? (
-                      <a href={item.link} className="text-lg hover:text-indigo-400 transition-colors">
+                      <a href={item.link} className="text-lg hover:text-term-accent transition-colors">
                         {item.value}
                       </a>
                     ) : (
@@ -176,64 +176,71 @@ export function Contact() {
           </motion.div>
 
           <motion.div
-            className="bg-gray-900/50 rounded-lg p-8 backdrop-blur-sm"
+            className="terminal-window"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 gap-6">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your Name"
-                  className="w-full px-4 py-3 bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Your Email"
-                  className="w-full px-4 py-3 bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
-                <input
-                  type="text"
-                  name="title"
-                  value={formData.title}
-                  onChange={handleChange}
-                  placeholder="Subject"
-                  className="w-full px-4 py-3 bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
-                <textarea
-                  rows={4}
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your Message"
-                  className="w-full px-4 py-3 bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
-                />
-              </div>
-
-              {submitStatus && (
-                <div className={`p-3 rounded-md ${submitStatus.success ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
-                  {submitStatus.message}
+            <div className="terminal-titlebar">
+              <span className="terminal-dot bg-red-500/70" />
+              <span className="terminal-dot bg-yellow-500/70" />
+              <span className="terminal-dot bg-term-accent/70" />
+              <span className="ml-2 text-xs font-mono text-term-muted">send_message.sh</span>
+            </div>
+            <div className="p-8">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 gap-6">
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name"
+                    className="w-full px-4 py-3 bg-term-bg border border-term-border rounded-sm font-mono text-sm focus:outline-none focus:border-term-accent transition-colors"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Your Email"
+                    className="w-full px-4 py-3 bg-term-bg border border-term-border rounded-sm font-mono text-sm focus:outline-none focus:border-term-accent transition-colors"
+                  />
+                  <input
+                    type="text"
+                    name="title"
+                    value={formData.title}
+                    onChange={handleChange}
+                    placeholder="Subject"
+                    className="w-full px-4 py-3 bg-term-bg border border-term-border rounded-sm font-mono text-sm focus:outline-none focus:border-term-accent transition-colors"
+                  />
+                  <textarea
+                    rows={4}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Your Message"
+                    className="w-full px-4 py-3 bg-term-bg border border-term-border rounded-sm font-mono text-sm focus:outline-none focus:border-term-accent transition-colors resize-none"
+                  />
                 </div>
-              )}
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="button-primary w-full flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-                {!isSubmitting && <Send className="w-4 h-4 ml-2" />}
-              </button>
-            </form>
+                {submitStatus && (
+                  <div className={`p-3 rounded-sm border font-mono text-sm ${submitStatus.success ? 'border-term-accent/40 text-term-accent' : 'border-red-500/40 text-red-400'}`}>
+                    {submitStatus.message}
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="button-primary w-full flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'sending...' : 'send_message'}
+                  {!isSubmitting && <Send className="w-4 h-4 ml-2" />}
+                </button>
+              </form>
+            </div>
           </motion.div>
         </div>
       </div>

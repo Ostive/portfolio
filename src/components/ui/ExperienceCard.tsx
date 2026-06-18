@@ -20,16 +20,12 @@ export function ExperienceCard({
   technologies
 }: ExperienceCardProps) {
   return (
-    <motion.div 
-      className="bg-gray-800 rounded-lg p-8 card-hover"
-      whileHover={{ scale: 1.02 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    >
+    <div className="terminal-window p-8 transition-colors duration-150 hover:border-term-accent/50">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
         <div>
-          <span className="text-sm text-indigo-400 mb-2 block">{period}</span>
+          <span className="text-sm font-mono text-term-accent mb-2 block">{'// '}{period}</span>
           <h3 className="text-xl font-bold mb-2">{role}</h3>
-          <div className="flex flex-wrap gap-4 text-gray-400">
+          <div className="flex flex-wrap gap-4 text-term-muted">
             <div className="flex items-center gap-2">
               <Building2 className="w-4 h-4" />
               <span>{company}</span>
@@ -42,15 +38,17 @@ export function ExperienceCard({
         </div>
       </div>
 
-      <ul className="list-disc list-inside space-y-2 text-gray-400 mb-6">
+      <ul className="space-y-2 text-term-muted mb-6">
         {description.map((item, index) => (
-          <motion.li 
+          <motion.li
             key={index}
+            className="flex items-start gap-2"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.1 }}
           >
-            {item}
+            <span className="text-term-accent font-mono">$</span>
+            <span>{item}</span>
           </motion.li>
         ))}
       </ul>
@@ -59,7 +57,7 @@ export function ExperienceCard({
         {technologies.map((tech, index) => (
           <motion.span
             key={index}
-            className="px-3 py-1 bg-gray-700 rounded-full text-sm text-gray-300"
+            className="px-3 py-1 border border-term-border rounded-sm text-sm font-mono text-term-muted"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: index * 0.05 }}
@@ -68,6 +66,6 @@ export function ExperienceCard({
           </motion.span>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 }

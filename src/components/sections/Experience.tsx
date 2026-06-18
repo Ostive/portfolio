@@ -1,10 +1,8 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { ExperienceCard } from '../ui/ExperienceCard';
 import { TimelineStepper } from '../ui/timeline-stepper';
-import { ParallaxCard } from '../ui/parallax-card';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { cn } from '../../lib/utils';
 
 const experiences = [
   {
@@ -76,13 +74,7 @@ function ExperienceItem({ experience, index, onInView }: ExperienceItemProps) {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
     >
-      <ParallaxCard
-        className={cn(
-          "transition-all duration-500"
-        )}
-      >
-        <ExperienceCard {...experience} />
-      </ParallaxCard>
+      <ExperienceCard {...experience} />
     </motion.div>
   );
 }
@@ -139,8 +131,8 @@ export function Experience() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold mb-4">Professional Experience</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 font-mono"><span className="text-term-accent">## </span>Professional Experience</h2>
+          <p className="text-term-muted max-w-2xl mx-auto">
             A track record of delivering impactful solutions across different roles and technologies
           </p>
         </motion.div>
@@ -166,7 +158,7 @@ export function Experience() {
           <motion.div
             className="absolute inset-0 pointer-events-none z-10"
             style={{
-              background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.08), transparent 40%)`,
+              background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(63, 185, 80, 0.06), transparent 40%)`,
             }}
           />
         </div>

@@ -9,16 +9,18 @@ import { Skills } from './components/sections/Skills';
 import { Experience } from './components/sections/Experience';
 import { Contact } from './components/sections/Contact';
 import { useLocation } from './hooks/useLocation';
-import { AnimatedBackground, FloatingParticles } from './components/ui/animated-background';
 
 export default function App() {
   const { pathname } = useLocation();
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Animated background */}
-      <AnimatedBackground />
-      <FloatingParticles />
+      <div
+        className="fixed top-0 right-0 w-[600px] h-[600px] -z-10 pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle at top right, rgba(63, 185, 80, 0.08), transparent 70%)',
+        }}
+      />
 
       <div className="relative z-10">
         <Header />

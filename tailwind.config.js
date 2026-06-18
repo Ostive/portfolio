@@ -3,25 +3,29 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      colors: {
+        term: {
+          bg: '#0a0e14',
+          surface: '#11161d',
+          border: '#21262d',
+          'border-hover': '#30363d',
+          text: '#c9d1d9',
+          muted: '#6e7681',
+          accent: '#3fb950',
+          amber: '#e3b341',
+        },
+      },
       animation: {
-        'gradient': 'gradient 8s linear infinite',
-        'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
+        blink: 'blink 1.1s steps(1) infinite',
       },
       keyframes: {
-        gradient: {
-          '0%, 100%': {
-            'background-size': '200% 200%',
-            'background-position': 'left center'
-          },
-          '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'right center'
-          },
-        },
-        'border-beam': {
-          '100%': {
-            'offset-distance': '100%',
-          },
+        blink: {
+          '0%, 49%': { opacity: '1' },
+          '50%, 100%': { opacity: '0' },
         },
       },
       aspectRatio: {
