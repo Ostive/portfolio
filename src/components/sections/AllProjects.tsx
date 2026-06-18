@@ -118,10 +118,10 @@ export function AllProjects() {
           transition={{ duration: 0.6 }}
         >
           <Link href="/" className="button-secondary mb-8">
-            <ArrowLeft className="w-4 h-4 mr-2" /> Back to Home
+            <ArrowLeft className="w-4 h-4 mr-2" /> back_to_home
           </Link>
-          <h2 className="text-4xl font-bold mb-4">All Projects</h2>
-          <p className="text-gray-400 max-w-2xl text-center">
+          <h2 className="text-4xl font-bold mb-4 font-mono"><span className="text-term-accent">## </span>All Projects</h2>
+          <p className="text-term-muted max-w-2xl text-center">
             Explore my complete portfolio of projects, showcasing various technologies and solutions
           </p>
         </motion.div>

@@ -2,8 +2,6 @@ import { Code2, GraduationCap, Languages } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { TimelineItem } from '../ui/TimelineItem';
 import { StatCard } from '../ui/StatCard';
-import { BorderBeam } from '../ui/border-beam';
-import { SectionSpotlight } from '../ui/section-spotlight';
 
 const stats = [
   {
@@ -68,18 +66,17 @@ export function About() {
   };
 
   return (
-    <section id="about" className="relative overflow-hidden">
-      <SectionSpotlight className="py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2
-            className="text-4xl font-bold mb-16 text-center"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            About Me
-          </motion.h2>
+    <section id="about" className="relative overflow-hidden py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.h2
+          className="text-4xl font-bold mb-16 text-center font-mono"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="text-term-accent">## </span>About Me
+        </motion.h2>
 
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
@@ -95,12 +92,12 @@ export function About() {
 
           <div className="mb-16">
             <motion.h3
-              className="text-2xl font-bold mb-8 text-center"
+              className="text-2xl font-bold mb-8 text-center font-mono"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
             >
-              Education
+              <span className="text-term-accent">## </span>Education
             </motion.h3>
             <motion.div
               className="space-y-8"
@@ -130,52 +127,57 @@ export function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="text-2xl font-bold mb-4">My Journey</h3>
-              <p className="text-gray-400 mb-4">
+              <h3 className="text-2xl font-bold mb-4 font-mono"><span className="text-term-accent">## </span>My Journey</h3>
+              <p className="text-term-muted mb-4">
                 I'm a passionate computer science student and web developer with a strong focus on creating responsive, user-friendly applications. My journey in tech began with a web development bootcamp that ignited my passion for coding.
               </p>
-              <p className="text-gray-400 mb-4">
+              <p className="text-term-muted mb-4">
                 Since then, I've been constantly expanding my skills through academic studies and hands-on projects. I enjoy solving complex problems and turning ideas into functional, elegant solutions.
               </p>
-              <p className="text-gray-400">
+              <p className="text-term-muted">
                 When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the community.
               </p>
             </motion.div>
             <motion.div
-              className="relative bg-gray-900/50 rounded-lg p-6 border border-gray-800 overflow-hidden"
+              className="terminal-window"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <BorderBeam size={250} duration={12} delay={9} />
-              <h3 className="text-2xl font-bold mb-4 relative z-10">My Approach</h3>
-              <ul className="space-y-2 relative z-10">
-                <li className="flex items-start">
-                  <span className="text-indigo-400 mr-2">•</span>
-                  <span>I believe in writing clean, maintainable code that solves real problems</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-indigo-400 mr-2">•</span>
-                  <span>I focus on creating intuitive user experiences that delight users</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-indigo-400 mr-2">•</span>
-                  <span>I'm committed to continuous learning and staying up-to-date with industry trends</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-indigo-400 mr-2">•</span>
-                  <span>I value collaboration and believe the best results come from teamwork</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-indigo-400 mr-2">•</span>
-                  <span>I approach challenges with creativity and persistence</span>
-                </li>
-              </ul>
+              <div className="terminal-titlebar">
+                <span className="terminal-dot bg-red-500/70" />
+                <span className="terminal-dot bg-yellow-500/70" />
+                <span className="terminal-dot bg-term-accent/70" />
+                <span className="ml-2 text-xs font-mono text-term-muted">approach.md</span>
+              </div>
+              <div className="p-6">
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <span className="text-term-accent mr-2 font-mono">$</span>
+                    <span>I believe in writing clean, maintainable code that solves real problems</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-term-accent mr-2 font-mono">$</span>
+                    <span>I focus on creating intuitive user experiences that delight users</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-term-accent mr-2 font-mono">$</span>
+                    <span>I'm committed to continuous learning and staying up-to-date with industry trends</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-term-accent mr-2 font-mono">$</span>
+                    <span>I value collaboration and believe the best results come from teamwork</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-term-accent mr-2 font-mono">$</span>
+                    <span>I approach challenges with creativity and persistence</span>
+                  </li>
+                </ul>
+              </div>
             </motion.div>
           </div>
-        </div>
-      </SectionSpotlight>
+      </div>
     </section>
   );
 }

@@ -1,6 +1,4 @@
 import { motion, Variants } from 'framer-motion';
-import { TiltCard } from './TiltCard';
-import { BorderBeam } from './border-beam';
 
 interface SkillCategoryProps {
   title: string;
@@ -10,30 +8,27 @@ interface SkillCategoryProps {
 
 export function SkillCategory({ title, skills, variants }: SkillCategoryProps) {
   return (
-    <motion.div
-      variants={variants}
-      className="h-full"
-    >
-      <TiltCard className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg h-full relative overflow-hidden group" rotationFactor={10}>
-        <BorderBeam
-          duration={12}
-          delay={9}
-          size={200}
-        />
-        <div className="p-6 h-full relative z-10">
-          <h3 className="text-xl font-bold mb-4 text-gradient">{title}</h3>
+    <motion.div variants={variants} className="h-full">
+      <div className="terminal-window h-full transition-colors duration-150 hover:border-term-accent/50">
+        <div className="terminal-titlebar">
+          <span className="terminal-dot bg-red-500/70" />
+          <span className="terminal-dot bg-yellow-500/70" />
+          <span className="terminal-dot bg-term-accent/70" />
+        </div>
+        <div className="p-6 h-full">
+          <h3 className="text-lg font-bold mb-4 font-mono text-term-accent">## {title}</h3>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill, index) => (
               <span
                 key={index}
-                className="px-3 py-1 bg-gray-700 rounded-full text-sm text-gray-300 transition-colors hover:bg-gray-600 cursor-default"
+                className="px-3 py-1 border border-term-border rounded-sm text-sm font-mono text-term-muted hover:border-term-accent hover:text-term-text transition-colors duration-150 cursor-default"
               >
                 {skill}
               </span>
             ))}
           </div>
         </div>
-      </TiltCard>
+      </div>
     </motion.div>
   );
 }

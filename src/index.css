@@ -4,36 +4,54 @@
 
 @layer base {
   body {
-    @apply bg-[#020617] text-gray-100;
+    @apply bg-term-bg text-term-text font-sans;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
   }
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 4rem;
+    scroll-padding-top: 6rem;
   }
 }
 
 @layer components {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 
-           bg-[length:200%_auto] animate-gradient;
+    @apply text-term-accent;
+  }
+
+  .terminal-cursor::after {
+    content: '_';
+    @apply text-term-accent animate-blink ml-1;
   }
 
   .button-primary {
-    @apply px-6 py-2 rounded-full bg-indigo-600 hover:bg-indigo-700 transition-all duration-200 
-           flex items-center gap-2 text-white hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/20;
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-sm font-mono text-sm font-medium
+           bg-term-accent text-black border border-term-accent
+           transition-colors duration-150
+           hover:bg-transparent hover:text-term-accent;
   }
 
   .button-secondary {
-    @apply px-6 py-2 rounded-full border border-gray-700 hover:border-indigo-500 transition-all duration-200 
-           flex items-center gap-2 hover:bg-gray-800 hover:scale-105;
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-sm font-mono text-sm font-medium
+           bg-transparent text-term-text border border-term-border
+           transition-colors duration-150
+           hover:border-term-accent hover:text-term-accent;
   }
 
-  .card-hover {
-    @apply relative transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10
-           before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-r 
-           before:from-transparent before:via-indigo-500/5 before:to-transparent
-           before:opacity-0 hover:before:opacity-100 before:transition-opacity;
+  .terminal-window {
+    @apply relative bg-term-surface border border-term-border rounded-sm overflow-hidden;
+  }
+
+  .terminal-titlebar {
+    @apply flex items-center gap-2 px-4 py-2.5 border-b border-term-border bg-black/20;
+  }
+
+  .terminal-dot {
+    @apply w-2.5 h-2.5 rounded-full;
   }
 }
 
@@ -44,20 +62,4 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-}
-
-/* Custom animations */
-@keyframes beam-glow {
-  0%, 100% {
-    opacity: 0.5;
-    transform: translateX(-50%) scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: translateX(-50%) scale(1.2);
-  }
-}
-
-.beam-glow {
-  animation: beam-glow 2s ease-in-out infinite;
 }

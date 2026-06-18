@@ -15,47 +15,47 @@ export function MobileMenu({ isOpen, activeSection, onClose, isAllProjects }: Mo
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
       <div className="fixed inset-0 bg-black/70" onClick={onClose} />
-      <div className="fixed right-0 top-0 bottom-0 w-3/4 max-w-xs bg-gray-900/95 backdrop-blur-xl border-l border-white/10 shadow-2xl p-6 overflow-y-auto transform transition-transform duration-300 ease-in-out">
-        <div className="flex justify-between items-center mb-8 border-b border-gray-800 pb-4">
-          <span className="text-xl font-bold text-white">Menu</span>
-          <button onClick={onClose} className="p-2 hover:bg-gray-800 rounded-lg transition-colors">
-            <X className="h-6 w-6" />
+      <div className="fixed right-0 top-0 bottom-0 w-3/4 max-w-xs bg-term-surface border-l border-term-border p-6 overflow-y-auto">
+        <div className="flex justify-between items-center mb-8 border-b border-term-border pb-4">
+          <span className="font-mono text-sm text-term-accent">{'>_'} menu</span>
+          <button onClick={onClose} className="p-2 text-term-muted hover:text-term-accent transition-colors">
+            <X className="h-5 w-5" />
           </button>
         </div>
-        <nav className="flex flex-col gap-4">
+        <nav className="flex flex-col gap-2">
           {isAllProjects ? (
-            <Link href="/" className="text-gray-400 hover:text-white transition-colors py-2">
-              Back to Home
+            <Link href="/" className="text-term-muted hover:text-term-accent transition-colors py-2 font-mono text-sm">
+              {'< back_to_home'}
             </Link>
           ) : (
             <>
               <NavLink href="#home" isActive={activeSection === 'home'} onClick={onClose}>
-                Home
+                home
               </NavLink>
               <NavLink href="#about" isActive={activeSection === 'about'} onClick={onClose}>
-                About
+                about
               </NavLink>
               <NavLink href="#projects" isActive={activeSection === 'projects'} onClick={onClose}>
-                Projects
+                projects
               </NavLink>
               <NavLink href="#skills" isActive={activeSection === 'skills'} onClick={onClose}>
-                Skills
+                skills
               </NavLink>
               <NavLink href="#experience" isActive={activeSection === 'experience'} onClick={onClose}>
-                Experience
+                experience
               </NavLink>
               <NavLink href="#contact" isActive={activeSection === 'contact'} onClick={onClose}>
-                Contact
+                contact
               </NavLink>
-              <div className="mt-4 pt-4 border-t border-gray-800">
+              <div className="mt-4 pt-4 border-t border-term-border">
                 <a
                   href="/documents/CV_Ostive_Kevin.pdf"
                   download
-                  className="flex items-center gap-2 px-4 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors w-full justify-center"
+                  className="flex items-center gap-2 px-4 py-3 border border-term-border hover:border-term-accent hover:text-term-accent rounded-sm transition-colors font-mono text-sm w-full justify-center"
                   onClick={onClose}
                 >
-                  <Download className="h-5 w-5" />
-                  <span>Download CV</span>
+                  <Download className="h-4 w-4" />
+                  <span>download_cv</span>
                 </a>
               </div>
             </>

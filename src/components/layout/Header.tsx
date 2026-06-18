@@ -1,4 +1,4 @@
-import { Code2, Menu, Download } from 'lucide-react';
+import { Menu, Download } from 'lucide-react';
 import { NavLink } from '../ui/NavLink';
 import { MobileMenu } from './MobileMenu';
 import { useNavigation } from '../../hooks/useNavigation';
@@ -11,44 +11,42 @@ export function Header() {
   const isAllProjects = pathname === '/all-projects';
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl transition-all duration-300">
-      <div className="bg-gray-900/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-lg px-4 sm:px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-term-border bg-term-bg/90 backdrop-blur-none">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="p-2 bg-indigo-500/10 rounded-lg group-hover:bg-indigo-500/20 transition-colors">
-              <Code2 className="h-5 w-5 text-indigo-400 group-hover:scale-110 transition-transform" />
-            </div>
-            <span className="font-bold text-lg tracking-tight">DevPortfolio</span>
+          <Link href="/" className="flex items-center gap-2 font-mono text-sm">
+            <span className="text-term-accent">{'>_'}</span>
+            <span className="font-semibold tracking-tight">ostive.dev</span>
           </Link>
 
           {!isAllProjects && (
             <nav className="hidden lg:flex items-center gap-1">
-              <NavLink href="#home" isActive={activeSection === 'home'}>Home</NavLink>
-              <NavLink href="#about" isActive={activeSection === 'about'}>About</NavLink>
-              <NavLink href="#projects" isActive={activeSection === 'projects'}>Projects</NavLink>
-              <NavLink href="#skills" isActive={activeSection === 'skills'}>Skills</NavLink>
-              <NavLink href="#experience" isActive={activeSection === 'experience'}>Experience</NavLink>
-              <NavLink href="#contact" isActive={activeSection === 'contact'}>Contact</NavLink>
+              <NavLink href="#home" isActive={activeSection === 'home'}>home</NavLink>
+              <NavLink href="#about" isActive={activeSection === 'about'}>about</NavLink>
+              <NavLink href="#projects" isActive={activeSection === 'projects'}>projects</NavLink>
+              <NavLink href="#skills" isActive={activeSection === 'skills'}>skills</NavLink>
+              <NavLink href="#experience" isActive={activeSection === 'experience'}>experience</NavLink>
+              <NavLink href="#contact" isActive={activeSection === 'contact'}>contact</NavLink>
 
-              <div className="w-px h-6 bg-gray-800 mx-2" />
+              <div className="w-px h-5 bg-term-border mx-2" />
 
               <a
                 href="/documents/CV_Ostive_Kevin.pdf"
                 download
-                className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full text-sm font-medium transition-all hover:shadow-lg hover:shadow-indigo-500/25 active:scale-95 ml-2"
+                className="flex items-center gap-2 px-3 py-1.5 border border-term-border hover:border-term-accent hover:text-term-accent rounded-sm font-mono text-xs transition-colors duration-150"
               >
-                <Download className="h-4 w-4" />
-                <span>CV</span>
+                <Download className="h-3.5 w-3.5" />
+                <span>cv.pdf</span>
               </a>
             </nav>
           )}
 
           <button
-            className="lg:hidden p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+            className="lg:hidden p-2 text-term-muted hover:text-term-accent transition-colors"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            <Menu className="h-6 w-6" />
+            <Menu className="h-5 w-5" />
           </button>
         </div>
       </div>
