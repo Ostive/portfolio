@@ -6,6 +6,9 @@ import { About } from './components/sections/About';
 import { Projects } from './components/sections/Projects';
 import { AllProjects } from './components/sections/AllProjects';
 import { Skills } from './components/sections/Skills';
+import { FavoriteCommands } from './components/sections/FavoriteCommands';
+import { LanguageRace } from './components/sections/LanguageRace';
+import { Memes } from './components/sections/Memes';
 import { Experience } from './components/sections/Experience';
 import { Contact } from './components/sections/Contact';
 import { useLocation } from './hooks/useLocation';
@@ -33,6 +36,9 @@ export default function App() {
               <About />
               <Projects />
               <Skills />
+              <FavoriteCommands />
+              <LanguageRace />
+              <Memes />
               <Experience />
               <Contact />
             </>
