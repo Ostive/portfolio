@@ -1,62 +1,34 @@
-# 👋 Hi, I'm Ostive RANDRIANOMENJANAHARY
+# Portfolio — Ostive Randrianomenjanahary
 
-I'm a **Engineer Student** with expertise in building modern web applications. Passionate about web development, I specialize in **Next.js, PostgreSQL**. I have experience working on **real estate platforms, skill management dashboards, employee turnover analysis**.
+Site portfolio personnel présentant mon parcours, mes compétences et mes projets d'ingénieur logiciel.
 
----
+🔗 [portfolio.codemg.com](https://portfolio.codemg.com)
 
-## 🚀 Skills & Technologies  
+## Sections
 
-- **Front-end**: Next.js, React, Tailwind CSS, JavaScript
-- **Back-end**: Next.js API Routes, Node.j
-- **Databases**: PostgreSQL, Prisma ORM  
-- **Data Science**: Pandas, NumPy, Jupyter Notebooks  
-- **DevOps & Tools**: Docker, Git, CI/CD  
+- **Hero** — présentation
+- **About** — parcours et profil
+- **Skills** — compétences techniques
+- **Experience** — expériences professionnelles
+- **Projects** — projets sélectionnés, avec une vue détaillée (`AllProjects`)
+- **Contact** — formulaire de contact (EmailJS)
 
----
+## Stack technique
 
-## 📂 Projects  
+Vite · React 18 · TypeScript · Tailwind CSS · Framer Motion (animations) · EmailJS (formulaire de contact)
 
-### 🏡 Real Estate Platform  
-**Tech Stack:** Next.js, PostgreSQL, AI-based search engine  
-- Developed an advanced property search with auto-completion and filtering  
-- Implemented a complex "More Filters" section for rentals  
+## Lancer le projet
 
-### 🏢 Employee Skill Management Dashboard  
-**Tech Stack:** Next.js, PostgreSQL, Data Visualization  
-- Created a heatmap for employee skill mapping  
-- Designed a treemap to visualize skills per sector  
+```bash
+npm install
+npm run dev
+```
 
-### 📊 Employee Turnover Analysis  
-**Tech Stack:** Python, Pandas, Jupyter Notebook  
-- Analyzed factors influencing employee turnover in the pharmaceutical industry  
-- Built an interactive report with visualizations  
+Application disponible sur [http://localhost:5173](http://localhost:5173).
 
-For more projects, check out my [GitHub Repositories](https://github.com/ostive).
+## Build production
 
----
-
-## 🏆 Experience  
-
-- **[MedTech World]** _(Internship)_  
-  - Developed automation scripts for marketing publications  
-  - Maintained and optimized the company’s website  
-
-- **[HumanForYou]** _(Employee Turnover Analysis)_  
-  - Conducted an in-depth study on employee retention  
-  - Presented findings in a professional report  
-
-For a full list of experiences, visit my [LinkedIn Profile](https://linkedin.com/in/yourprofile).
-
----
-
-## 📫 Let's Connect  
-
-- **Portfolio:** [yourwebsite.com](https://yourwebsite.com)  
-- **GitHub:** [github.com/yourusername](https://github.com/yourusername)  
-- **LinkedIn:** [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)  
-- **Email:** your.email@example.com  
-
-Looking forward to collaborating! 🚀  
-=======
-# portfolio
-
+```bash
+npm run build
+npm run preview
+```
