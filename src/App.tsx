@@ -8,9 +8,11 @@ import { AllProjects } from './components/sections/AllProjects';
 import { Skills } from './components/sections/Skills';
 import { FavoriteCommands } from './components/sections/FavoriteCommands';
 import { LanguageRace } from './components/sections/LanguageRace';
-import { Memes } from './components/sections/Memes';
 import { Experience } from './components/sections/Experience';
 import { Contact } from './components/sections/Contact';
+import { BugToast } from './components/ui/BugToast';
+import { GlitchAnomalies } from './components/ui/GlitchAnomalies';
+import { GlitchTear } from './components/ui/GlitchTear';
 import { useLocation } from './hooks/useLocation';
 
 export default function App() {
@@ -38,13 +40,15 @@ export default function App() {
               <Skills />
               <FavoriteCommands />
               <LanguageRace />
-              <Memes />
               <Experience />
               <Contact />
             </>
           )}
         </main>
         <Footer />
+        <GlitchAnomalies />
+        <GlitchTear />
+        <BugToast />
       </div>
     </div>
   );

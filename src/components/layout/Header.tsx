@@ -4,6 +4,7 @@ import { MobileMenu } from './MobileMenu';
 import { useNavigation } from '../../hooks/useNavigation';
 import { Link } from '../ui/Link';
 import { useLocation } from '../../hooks/useLocation';
+import { GlitchText } from '../ui/GlitchText';
 
 export function Header() {
   const { isOpen, activeSection, toggleMenu, closeMenu } = useNavigation();
@@ -16,7 +17,9 @@ export function Header() {
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center gap-2 font-mono text-sm">
             <span className="text-term-accent">{'>_'}</span>
-            <span className="font-semibold tracking-tight">ostive.dev</span>
+            <span className="font-semibold tracking-tight">
+              <GlitchText text="ostive.dev" />
+            </span>
           </Link>
 
           {!isAllProjects && (

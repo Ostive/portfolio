@@ -53,6 +53,44 @@
   .terminal-dot {
     @apply w-2.5 h-2.5 rounded-full;
   }
+
+  .glitch-text {
+    position: relative;
+    display: inline-block;
+  }
+
+  .glitch-text.is-glitching::before,
+  .glitch-text.is-glitching::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .glitch-text.is-glitching::before {
+    color: #ff3b3b;
+    clip-path: inset(0 0 60% 0);
+    animation: glitch-shift 0.35s steps(2, end);
+  }
+
+  .glitch-text.is-glitching::after {
+    color: #3ba1ff;
+    clip-path: inset(45% 0 0 0);
+    animation: glitch-shift 0.35s steps(2, end) reverse;
+  }
+
+  .glitch-anomaly {
+    color: #3fb950;
+    text-shadow: -2px 0 #ff3b3b, 2px 0 #3ba1ff;
+    mix-blend-mode: screen;
+    animation: anomaly-flicker 0.28s steps(2, end);
+  }
+
+  .glitch-tear {
+    background: linear-gradient(90deg, rgba(255, 59, 59, 0.25), rgba(63, 185, 80, 0.15) 50%, rgba(59, 161, 255, 0.25));
+    mix-blend-mode: screen;
+    animation: tear-shift 0.18s steps(2, end);
+  }
 }
 
 @layer utilities {
@@ -62,4 +100,24 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+}
+
+@keyframes glitch-shift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-3px, 1px); }
+  50% { transform: translate(3px, -1px); }
+  75% { transform: translate(-2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes anomaly-flicker {
+  0%, 100% { opacity: 0; }
+  10%, 90% { opacity: 1; }
+  50% { opacity: 0.4; transform: translateX(2px); }
+}
+
+@keyframes tear-shift {
+  0% { transform: translateX(-6px); opacity: 0; }
+  40% { transform: translateX(6px); opacity: 1; }
+  100% { transform: translateX(0); opacity: 0; }
 }

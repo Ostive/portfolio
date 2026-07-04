@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ProjectCard } from '../ui/ProjectCard';
 import { Link } from '../ui/Link';
+import { MemeSticker } from '../ui/MemeSticker';
 
 const featuredProjects = [
   {
@@ -58,7 +59,14 @@ export function Projects() {
 
   return (
     <section id="projects" className="py-32 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <MemeSticker
+          src="/images/meme/distracted_boyfriend.jpg"
+          alt="Distracted boyfriend meme: me looking at a new project instead of the 9 side projects I never finished"
+          className="top-4"
+          side="left"
+          rotate={5}
+        />
         <motion.div
           className="flex justify-between items-end mb-16"
           initial={{ opacity: 0, y: 20 }}

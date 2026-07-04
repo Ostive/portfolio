@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { SkillCategory } from '../ui/SkillCategory';
+import { MemeSticker } from '../ui/MemeSticker';
 
 const skills = {
   'Programming': [
@@ -44,7 +45,14 @@ export function Skills() {
 
   return (
     <section id="skills" className="py-32 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <MemeSticker
+          src="/images/meme/pableau_escobar_meme.jpg"
+          alt="Pablo Escobar waiting meme: compiler says syntax error at line 300, but line 300 is blank"
+          className="bottom-10"
+          side="right"
+          rotate={-4}
+        />
         <motion.h2
           className="text-4xl font-bold mb-16 text-center font-mono"
           initial={{ opacity: 0, y: -20 }}

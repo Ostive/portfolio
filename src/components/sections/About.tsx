@@ -2,6 +2,7 @@ import { Code2, GraduationCap, Languages } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { TimelineItem } from '../ui/TimelineItem';
 import { StatCard } from '../ui/StatCard';
+import { MemeSticker } from '../ui/MemeSticker';
 
 const stats = [
   {
@@ -67,7 +68,14 @@ export function About() {
 
   return (
     <section id="about" className="relative overflow-hidden py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <MemeSticker
+          src="/images/meme/brain_meme.jpg"
+          alt="Expanding brain meme: it works, nobody knows why, do not touch it"
+          className="top-16"
+          side="right"
+          rotate={-6}
+        />
         <motion.h2
           className="text-4xl font-bold mb-16 text-center font-mono"
           initial={{ opacity: 0, y: -20 }}

@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { GlitchText } from "../ui/GlitchText";
 
 export default Hero;
 
@@ -45,7 +46,9 @@ export function Hero() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 tracking-tight break-words font-mono"
           >
             <span className="block">RANDRIANOMENAJANAHARY</span>
-            <span className="block text-term-accent terminal-cursor">Ostive</span>
+            <span className="block text-term-accent terminal-cursor">
+              <GlitchText text="Ostive" />
+            </span>
           </motion.h1>
 
           <motion.p
@@ -69,20 +72,6 @@ export function Hero() {
               contact_me
             </a>
           </motion.div>
-        </motion.div>
-
-        <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 font-mono text-xs text-term-muted"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 1 }}
-        >
-          <motion.span
-            animate={{ opacity: [1, 0.3, 1] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          >
-            [ scroll_down ]
-          </motion.span>
         </motion.div>
       </div>
     </section>
