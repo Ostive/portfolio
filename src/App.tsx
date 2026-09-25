@@ -7,7 +7,7 @@ import { Projects } from './components/sections/Projects';
 import { AllProjects } from './components/sections/AllProjects';
 import { Skills } from './components/sections/Skills';
 import { FavoriteCommands } from './components/sections/FavoriteCommands';
-import { LanguageRace } from './components/sections/LanguageRace';
+import { SnakeGame } from './components/sections/SnakeGame';
 import { Experience } from './components/sections/Experience';
 import { Contact } from './components/sections/Contact';
 import { BugToast } from './components/ui/BugToast';
@@ -39,7 +39,7 @@ export default function App() {
               <Projects />
               <Skills />
               <FavoriteCommands />
-              <LanguageRace />
+              <SnakeGame />
               <Experience />
               <Contact />
             </>
